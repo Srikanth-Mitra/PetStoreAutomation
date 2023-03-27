@@ -5,6 +5,7 @@ import static io.restassured.RestAssured.given;
 import api.payload.Pet;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import jdk.internal.net.http.common.Log;
 
 public class PetEndPoints 
 {
@@ -21,14 +22,21 @@ public class PetEndPoints
 		return response;
 	}
 	
-	public static Response findPurchase(int orderid)
+	public static Response findPurchase(int petId)
 	{
 		Response response=given()
-				.pathParam("orderid", orderid)
+				.pathParam("petId", petId)
 			.when()
 				.get(Routes.getpurchase_store_url);
-		
 		return response;	
 	}
 	
+	public static Response DeleteItem(int petId)
+	{
+		Response response=given()
+				.pathParam("petId", petId)
+			.when()
+				.delete(Routes.delete_store_url);
+		return response;
+	}
 }

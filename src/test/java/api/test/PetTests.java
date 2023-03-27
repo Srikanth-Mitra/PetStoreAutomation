@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 import com.github.javafaker.Faker;
 
 import api.endpoints.PetEndPoints;
+import api.endpoints.Routes;
 import api.payload.Pet;
 import io.restassured.response.Response;
 
@@ -45,7 +46,17 @@ public class PetTests
 	{
 		Response response = PetEndPoints.findPurchase(faker.number().numberBetween(1,10));
 		response.then().log().all();
-		Assert.assertEquals(response.getStatusCode(), 400);
+		Assert.assertEquals(response.getStatusCode(), 200);
+	}
+	
+	@Test(priority = 4)
+	public void testDeletePet()
+	{
+		int number = faker.number().numberBetween(1,10);
+		Response response = PetEndPoints.DeleteItem(number);
+		response.then().log().all();
+		System.out.println("Logs error: "+number);
+		Assert.assertEquals(response.getStatusCode(), 200);
 	}
 	
 }

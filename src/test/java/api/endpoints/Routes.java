@@ -26,7 +26,7 @@ public class Routes
 	
 	//store module
 	public static String post_store_url = base_url+"/store/order";
-	public static String getpurchase_store_url = base_url+"/store/order/{orderId}";
-	public static String delete_store_url = base_url+"/store/order/{orderId}";
+	public static String getpurchase_store_url = base_url+"/store/order/{petId}";
+	public static String delete_store_url = base_url+"/store/order/{petId}";
 	public static String get_store_url = base_url+"/store/inventory";
 }
