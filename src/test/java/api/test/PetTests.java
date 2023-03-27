@@ -24,7 +24,7 @@ public class PetTests
 		petPayload = new Pet();
 		
 		petPayload.setId(faker.number().randomDigitNotZero());
-		petPayload.setPetId(faker.number().randomDigitNotZero());
+		petPayload.setPetId(faker.number().numberBetween(1,10));
 		petPayload.setQuantity(faker.number().numberBetween(1,20));
 		petPayload.setShipDate(faker.date().birthday().toInstant().toString());
 		//System.out.println(petPayload.setShipDate(faker.date().birthday().toInstant().toString()));
